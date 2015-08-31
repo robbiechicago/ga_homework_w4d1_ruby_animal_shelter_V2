@@ -10,8 +10,11 @@ class Client
     @age = age
     @gender = gender
     @num_pets = num_pets
-    # @client_info = {}
+    @pets = []
   end
 
+  def add_pet(new_animal)
+    pets << (new_animal)
+  end
 
 end

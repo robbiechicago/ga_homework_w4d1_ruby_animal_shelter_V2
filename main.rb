@@ -9,6 +9,14 @@ def list_humans shelter
   shelter.clients.each_with_index { |client, index| puts "#{index}: name = #{client.name}.  age = #{client.age}. gender = #{client.gender}.  number of pets = #{client.num_pets}."}
 end
 
+def list_humans_shorter shelter
+  shelter.clients.each_with_index { |client, index| puts "#{index}: name = #{client.name}"}
+end
+
+def list_pets shelter
+  shelter.clients.each_with_index { |client, index| puts "#{index}: name = #{client.name}.  age = #{client.age}. gender = #{client.gender}.  number of pets = #{client.num_pets}."}
+end
+
 def menu
   puts `clear`
   puts '*' * 72
@@ -56,10 +64,33 @@ until response.downcase == 'q'
     gets
 
   when '2'
-      puts "list of humans"
-      list_humans(my_shelter)
-      gets
+    puts "list of humans"
+    list_humans(my_shelter)
+    gets
   when '3'
+    puts 'Which human would you like to add an animal to? (select index number)'
+    list_humans_shorter(my_shelter)
+    animal_owner = gets.to_i
+    
+    puts 'type of animal'
+    animal_species = gets.chomp
+
+    puts 'animal\'s name'
+    animal_name = gets.chomp
+
+    puts 'animal\'s age'
+    animal_age = gets.to_i
+
+    puts 'animal\'s gender (m or f)'
+    animal_gender = gets.chomp
+
+    puts 'animal\'s favourite toy'
+    animal_fav_toy = gets.chomp
+
+    new_animal = Animal.new(animal_name, animal_owner, animal_species, animal_age, animal_gender, animal_fav_toy)
+    clients.add_pet(new_animal)
+    gets
+
   when '4'
   when '5'
   when '6'
