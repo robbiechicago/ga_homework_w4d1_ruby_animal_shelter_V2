@@ -7,9 +7,9 @@ my_shelter = Shelter.new ("RoHo's Centre for Pathetic Creatures")
 
 def menu
   puts `clear`
-  puts '*' * 52
+  puts '*' * 72
   puts "Welcome to RoHo's Centre for Pathetic Creatures".center 50
-  puts '*' * 52
+  puts '*' * 72
   puts '1: Add a human'
   puts '2: List humans'
   puts '3: Add an animal'
@@ -30,5 +30,6 @@ until response.downcase == 'q'
   when 4
   when 5
   when 6
+  end
   response = menu
 end
