@@ -25,6 +25,23 @@ response = menu
 until response.downcase == 'q'
   case response
   when 1
+    puts 'Hello human.  What is your name?'
+    human_name = gets.chomp
+
+    puts "nice to meet you, #{human_name}.  How old are you, if you don't mind my asking?"
+    human_age = gets.to_i
+
+    puts "Goodness, #{human_name}, you don't look a day over #{human_age - 5}. Are you a boy human or a girl human? I can't quite tell. (enter m / f)"
+    human_gender = gets.downcase.chomp
+    until human_gender == 'm' || 'f'
+      puts 'sorry, I don\'t recognise that gender.  m or f please'
+      human_gender = gets.downcase.chomp
+    end
+
+    puts "one final question, #{human_name}.  How many pets do you have?"
+    human_num_of_pets = gets.to_i
+    gets
+    
   when 2
   when 3
   when 4
